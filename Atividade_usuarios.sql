@@ -21,5 +21,12 @@ from postagens as p right join usuarios as u
 on u.ID_USUARIO = p.USUARIO
 group by USUARIO;
 
+#6. Mostrar os nomes dos usuários que fizeram comentários em 2024.
+desc comentarios;
+select distinct concat_ws(' ', u.nome_usuario, u.sobrenome) as usuario
+from usuarios u join comentarios  c
+on c.USUARIO = u.ID_USUARIO
+where year (c.datahora) = 2024;
+
 
 
